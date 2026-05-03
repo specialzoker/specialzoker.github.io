@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>경기진협 플랫폼</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <img src="logo.png" alt="경기진협 로고" class="logo-img">
+      </div>
+      <span class="app-count" id="app-count"></span>
+    </div>
+  </header>
+
+  <!-- 히어로 -->
+  <section class="hero">
+    <h1>경기진협 자료개발국 <em>공식 웹앱</em> 플랫폼</h1>
+    <p>경기진학지도협의회 자료개발국 국장 채무철, 간사 김한국, 정현석, 김기정</p>
+  </section>
+
+  <!-- 카테고리 필터 -->
+  <section class="filter-section">
+    <nav id="filter-nav" aria-label="카테고리 필터"></nav>
+  </section>
+
+  <!-- 카드 그리드 -->
+  <main class="grid-section">
+    <div id="card-grid"></div>
+    <div id="empty-state" hidden>
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/><path d="M8 15s1.5-2 4-2 4 2 4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+      </svg>
+      <p>해당 카테고리의 앱이 없습니다.</p>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
