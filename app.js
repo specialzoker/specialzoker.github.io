@@ -34,6 +34,7 @@ const APPS = [
     id: 6,
     name: "2028 대입전형 시행계획 나침반",
     description: "2028 대입전형 시행계획 링크 모음",
+    note: "만든사람 새솔고 김태진",
     category: "진학데이터검색",
     thumbnail: "images/나침반.png",
     thumbnailColor: "#10b981",
