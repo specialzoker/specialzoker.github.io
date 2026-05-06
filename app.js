@@ -19,7 +19,7 @@ const APPS = [
     category: "진학데이터검색",
     thumbnail: "images/box.png",
     thumbnailColor: "#10b981",
-    link: "https://ggjinhyubboxplot.netlify.app/",
+    link: "https://specialzoker.github.io/ggjinhyubboxplot/",
   },
   {
     id: 4,
