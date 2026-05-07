@@ -3,114 +3,273 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>경기진협 2028 대입전형 시행계획 나침반</title>
+<title>대학 정보 나침반 | 경기진학지도협의회</title>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'맑은 고딕','Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#f0f4fb;color:#1a2640;min-height:100vh}
-
-.header{
-  background:linear-gradient(135deg,#0d2a5e 0%,#1a4db8 60%,#1e5fc6 100%);
-  padding:20px 32px 0 32px;
-  box-shadow:0 3px 16px rgba(13,42,94,.38);
-  position:relative;overflow:hidden;
-}
-.header::before{content:'';position:absolute;top:-40px;right:-40px;width:220px;height:220px;background:rgba(255,255,255,.05);border-radius:50%;}
-.header::after{content:'';position:absolute;bottom:-60px;right:120px;width:140px;height:140px;background:rgba(255,255,255,.04);border-radius:50%;}
-
-.header-main{display:flex;align-items:center;gap:20px;padding-bottom:16px;}
-
-.logo-area{
-  width:72px;height:72px;flex-shrink:0;
-  background:#fff;
-  border:2px solid rgba(255,255,255,.60);
-  border-radius:16px;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 16px rgba(0,0,0,.25), 0 1px 0 rgba(255,255,255,.4) inset;
-  position:relative;z-index:1;overflow:hidden;
-}
-.logo-area img{
-  width:64px;height:64px;object-fit:contain;
+:root {
+  --bg: #f0f4fb;
+  --surface: #ffffff;
+  --border: #dae2f0;
+  --border2: #c8d4e8;
+  --text: #1a2640;
+  --text-muted: #6a7a98;
+  --accent: #1a4db8;
+  --accent-light: #e3ecff;
+        --green: #0f7a3c;
+  --green-light: #e8f8ee;
+  --font: 'Malgun Gothic', '맑은 고딕', sans-serif;
 }
 
-.hd-text{flex:1;position:relative;z-index:1}
-.hd-org{font-size:12px;font-weight:700;color:rgba(255,255,255,.75);letter-spacing:.08em;margin-bottom:5px;display:flex;align-items:center;gap:6px;}
-.hd-org::before{content:'';display:inline-block;width:16px;height:1.5px;background:rgba(255,255,255,.5);}
-.hd-title{font-size:20px;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1.28;}
-.hd-title em{font-style:normal;background:linear-gradient(90deg,#7ec8ff,#a8d8ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hd-sub{font-size:11.5px;color:rgba(255,255,255,.58);margin-top:6px;font-weight:400;}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-.hd-stat{
-  position:relative;z-index:1;
-  background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);
-  border-radius:14px;padding:12px 20px;text-align:center;flex-shrink:0;
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-weight: 700;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.header {
+  background: linear-gradient(135deg, #0d2a5e 0%, #1a4db8 60%, #1e5fc6 100%);
+  padding: 20px 32px 0 32px;
+  box-shadow: 0 3px 16px rgba(13,42,94,.38);
+  position: relative;
+  overflow: hidden;
+}
+.header::before { content:''; position:absolute; top:-40px; right:-40px; width:220px; height:220px; background:rgba(255,255,255,.05); border-radius:50%; }
+.header::after  { content:''; position:absolute; bottom:-60px; right:120px; width:140px; height:140px; background:rgba(255,255,255,.04); border-radius:50%; }
+
+.header-main { display:flex; align-items:center; gap:20px; padding-bottom:16px; }
+
+
+.logo-area {
+  width:72px; height:72px; flex-shrink:0;
+  background:transparent;
+  border:none;
+  border-radius:0;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:none;
+  position:relative; z-index:1; overflow:hidden;
+}
+.logo-area img {
+  width:68px; height:68px; object-fit:contain;
+}
+
+
+.hd-text { flex:1; position:relative; z-index:1; }
+.hd-org {
+  font-size:12px; font-weight:700;
+  color:rgba(255,255,255,.75); letter-spacing:.08em;
+  margin-bottom:5px; display:flex; align-items:center; gap:6px;
+}
+.hd-org::before { content:''; display:inline-block; width:16px; height:1.5px; background:rgba(255,255,255,.5); }
+.hd-title { font-size:22px; font-weight:900; color:#fff; letter-spacing:-.02em; line-height:1.28; }
+.hd-title em { font-style:normal; background:linear-gradient(90deg,#7ec8ff,#a8d8ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.hd-sub { font-size:12px; color:rgba(255,255,255,.6); margin-top:6px; font-weight:700; }
+
+.hd-stat {
+  position:relative; z-index:1;
+  background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.22);
+  border-radius:14px; padding:12px 20px; text-align:center; flex-shrink:0;
   backdrop-filter:blur(4px);
 }
-.stat-num{font-size:36px;font-weight:900;color:#fff;line-height:1;}
-.stat-lbl{font-size:11px;color:rgba(255,255,255,.68);margin-top:3px;font-weight:700;letter-spacing:.04em;}
+.stat-num { font-size:36px; font-weight:900; color:#fff; line-height:1; }
+.stat-lbl { font-size:11px; color:rgba(255,255,255,.68); margin-top:3px; font-weight:700; letter-spacing:.04em; }
 
-.notice-bar{
-  position:relative;z-index:1;
-  background:rgba(0,0,0,.22);border-top:1px solid rgba(255,255,255,.12);
-  padding:8px 32px;display:flex;align-items:center;gap:8px;
+.notice-bar {
+  position:relative; z-index:1;
+  background:rgba(0,0,0,.22); border-top:1px solid rgba(255,255,255,.12);
+  padding:8px 32px; display:flex; align-items:center; gap:8px;
 }
-.notice-icon{font-size:13px;flex-shrink:0}
-.notice-text{font-size:11.5px;font-weight:700;color:rgba(255,220,100,.90);letter-spacing:.01em;line-height:1.5;}
+.notice-text { font-size:11.5px; font-weight:700; color:rgba(255,220,100,.9); letter-spacing:.01em; line-height:1.5; }
 
-.controls{
-  background:#fff;border-bottom:1px solid #dae2f0;
-  padding:12px 28px;display:flex;align-items:center;gap:12px;
-  flex-wrap:wrap;position:sticky;top:0;z-index:100;
-  box-shadow:0 2px 10px rgba(26,77,184,.08);
+/* ── CONTROLS ── */
+.controls {
+  background:#fff; border-bottom:1px solid var(--border);
+  padding:12px 28px; display:flex; align-items:center; gap:12px;
+  flex-wrap:wrap; position:sticky; top:0; z-index:100;
+  box-shadow: 0 2px 10px rgba(26,77,184,.08);
 }
-.search-wrap{position:relative;flex:1;min-width:170px;max-width:290px}
-.s-ic{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:#8a9ab8;font-size:13px;pointer-events:none}
-.search-input{
-  width:100%;padding:8px 32px 8px 32px;
-  border:1.5px solid #cdd8ed;border-radius:8px;
-  font-family:inherit;font-size:13.5px;font-weight:700;
-  color:#1a2640;background:#f6f9ff;outline:none;
-  transition:border-color .18s,background .18s;
+
+.search-wrap { position:relative; flex:1; min-width:170px; max-width:300px; }
+.s-ic { position:absolute; left:11px; top:50%; transform:translateY(-50%); color:#8a9ab8; font-size:13px; pointer-events:none; }
+.search-input {
+  width:100%; padding:8px 30px 8px 32px;
+  border:1.5px solid var(--border2); border-radius:8px;
+  font-family:inherit; font-size:13.5px; font-weight:700;
+  color:var(--text); background:#f6f9ff; outline:none;
+  transition:border-color .18s, background .18s;
 }
-.search-input:focus{border-color:#1a4db8;background:#fff}
-.clr{position:absolute;right:9px;top:50%;transform:translateY(-50%);background:none;border:none;color:#aab;cursor:pointer;font-size:15px;display:none;line-height:1;padding:0;}
-.clr.on{display:block}
-.rbtns{display:flex;gap:5px;flex-wrap:wrap}
-.rbtn{padding:6px 13px;border-radius:20px;border:1.5px solid #cdd8ed;background:#fff;color:#4a5a7a;font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;transition:all .16s;white-space:nowrap;}
-.rbtn:hover{background:#e3ecff;border-color:#1a4db8;color:#1a4db8}
-.rbtn.on{background:#1a4db8;border-color:#1a4db8;color:#fff;box-shadow:0 2px 8px rgba(26,77,184,.28)}
+.search-input:focus { border-color:var(--accent); background:#fff; }
+.clr { position:absolute; right:9px; top:50%; transform:translateY(-50%); background:none; border:none; color:#aab; cursor:pointer; font-size:15px; display:none; line-height:1; padding:0; }
+.clr.on { display:block; }
 
-.main{max-width:1380px;margin:0 auto;padding:20px 28px 48px}
-.info-bar{font-size:13px;color:#6a7a98;font-weight:700;margin-bottom:16px}
-.info-bar span{color:#1a4db8;font-weight:900}
 
-.rsec{margin-bottom:26px}
-.rsec-hd{display:flex;align-items:center;gap:8px;margin-bottom:11px;padding-bottom:9px;border-bottom:2.5px solid #1a4db8;}
-.rsec-name{font-size:17px;font-weight:900;color:#0d2a5e}
-.rsec-cnt{background:#1a4db8;color:#fff;font-size:11px;font-weight:700;border-radius:12px;padding:2px 9px;line-height:1.8;}
+.rbtns { display:flex; gap:5px; flex-wrap:wrap; }
+.rbtn {
+  padding:6px 13px; border-radius:20px; border:1.5px solid var(--border2);
+  background:#fff; color:var(--text-muted);
+  font-family:inherit; font-size:12.5px; font-weight:700;
+  cursor:pointer; transition:all .16s; white-space:nowrap;
+}
+.rbtn:hover { background:var(--accent-light); border-color:var(--accent); color:var(--accent); }
+.rbtn.on { background:var(--accent); border-color:var(--accent); color:#fff; box-shadow:0 2px 8px rgba(26,77,184,.28); }
 
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(192px,1fr));gap:8px}
-.card{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#fff;border:1.5px solid #d4dff0;border-radius:10px;padding:12px 14px;cursor:pointer;text-decoration:none;color:#1a2640;box-shadow:0 1px 5px rgba(26,77,184,.07);transition:all .15s;font-weight:700;font-size:14px;}
-.card:hover{background:#eaf1ff;border-color:#1a4db8;box-shadow:0 4px 14px rgba(26,77,184,.16);transform:translateY(-2px);color:#0d2a5e;}
-.arr{color:#b4c0d4;font-size:13px;flex-shrink:0;transition:all .15s}
-.card:hover .arr{color:#1a4db8;transform:translateX(3px)}
+/* ── MAIN ── */
+.main { max-width:1380px; margin:0 auto; padding:20px 28px 60px; }
 
-.empty{text-align:center;padding:56px 20px;color:#7a8fa8;font-weight:700}
-.empty-ic{font-size:36px;margin-bottom:10px}
+.info-bar { font-size:13px; color:var(--text-muted); font-weight:700; margin-bottom:16px; }
+.info-bar span { color:var(--accent); font-weight:900; }
 
-footer{background:#0d2a5e;color:rgba(255,255,255,.45);text-align:center;padding:14px;font-size:11.5px;font-weight:700;letter-spacing:.03em;}
+.rsec { margin-bottom:32px; }
+.rsec-hd {
+  display:flex; align-items:center; gap:8px;
+  margin-bottom:12px; padding-bottom:9px;
+  border-bottom:2.5px solid var(--accent);
+}
+.rsec-name { font-size:17px; font-weight:900; color:#0d2a5e; }
+.rsec-cnt {
+  background:var(--accent); color:#fff;
+  font-size:11px; font-weight:700;
+  border-radius:12px; padding:2px 9px; line-height:1.8;
+}
 
-@media(max-width:640px){
-  .header{padding:14px 16px 0 16px;}
-  .header-main{padding-bottom:14px;}
-  .logo-area{width:56px;height:56px}
-  .logo-area img{width:48px;height:48px}
-  .hd-title{font-size:15.5px}
-  .stat-num{font-size:26px}
-  .notice-bar{padding:7px 16px;}
-  .notice-text{font-size:10.5px;}
-  .controls{padding:10px 14px}
-  .main{padding:14px 14px 32px}
-  .cards{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+/* ── CARDS ── */
+.cards {
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap:10px;
+}
+
+.card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:14px 16px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  transition:all .18s;
+  box-shadow:0 1px 4px rgba(26,42,94,.06);
+}
+.card:hover {
+  border-color:var(--accent);
+  box-shadow:0 4px 16px rgba(26,77,184,.12);
+  transform:translateY(-1px);
+}
+
+.card-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.card-name {
+  font-size:15px;
+  font-weight:900;
+  color:var(--text);
+  flex:1;
+}
+
+
+.card-btns {
+  display:flex;
+  gap:7px;
+}
+
+.link-btn {
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  padding:7px 10px;
+  border-radius:7px;
+  font-family:inherit;
+  font-size:12.5px;
+  font-weight:700;
+  text-decoration:none;
+  transition:all .15s;
+  border:1.5px solid transparent;
+}
+
+.btn-home {
+  background:var(--accent-light);
+  color:var(--accent);
+  border-color:#c0d3f5;
+}
+.btn-home:hover {
+  background:var(--accent);
+  color:#fff;
+  border-color:var(--accent);
+}
+
+.btn-pdf {
+  background:var(--green-light);
+  color:var(--green);
+  border-color:#b5dfc8;
+}
+.btn-pdf:hover {
+  background:var(--green);
+  color:#fff;
+  border-color:var(--green);
+}
+
+.btn-only {
+  /* single button takes full width */
+  flex:1;
+}
+
+.btn-disabled {
+  background:#f4f4f4;
+  color:#bbb;
+  border-color:#e0e0e0;
+  cursor:not-allowed;
+  pointer-events:none;
+}
+
+/* ── EMPTY ── */
+.empty {
+  text-align:center;
+  padding:80px 20px;
+  color:var(--text-muted);
+  font-size:15px;
+}
+.empty-ic { font-size:40px; margin-bottom:14px; }
+
+/* ── SCROLL TOP ── */
+.scroll-top {
+  position:fixed; bottom:28px; right:28px;
+  width:42px; height:42px;
+  border-radius:6px; background:var(--accent);
+  border:none; color:#fff; font-size:18px;
+  font-weight:700; cursor:pointer; display:none;
+  align-items:center; justify-content:center;
+  z-index:200; font-family:var(--font);
+  box-shadow:0 4px 12px rgba(26,77,184,.35);
+  transition:opacity .2s;
+}
+.scroll-top.visible { display:flex; }
+
+/* ── FOOTER ── */
+footer {
+  text-align:center;
+  padding:20px;
+  font-size:12px;
+  color:var(--text-muted);
+  background:#fff;
+  border-top:1px solid var(--border);
+}
+
+@media (max-width:640px) {
+  .cards { grid-template-columns:1fr; }
+  .header { padding:16px 16px 0; }
+  .controls { padding:10px 16px; }
+  .main { padding:16px 14px 60px; }
+  .hd-title { font-size:17px; }
+  .hd-stat { display:none; }
 }
 </style>
 </head>
@@ -123,17 +282,15 @@ footer{background:#0d2a5e;color:rgba(255,255,255,.45);text-align:center;padding:
     </div>
     <div class="hd-text">
       <div class="hd-org">경기진학지도협의회</div>
-      <div class="hd-title"><em>2028</em> 대입전형 시행계획 나침반</div>
-      <div class="hd-sub">대학 이름을 클릭하면 시행계획을 바로 다운로드할 수 있습니다</div>
+      <div class="hd-title">대학 정보 <em>나침반</em></div>
+      <div class="hd-sub">입학처 홈페이지 + 2028 대입전형 시행계획을 한 곳에서</div>
     </div>
     <div class="hd-stat">
       <div class="stat-num" id="cnt">—</div>
       <div class="stat-lbl">개 대학</div>
     </div>
-  </div>
-  <div class="notice-bar">
-    <span class="notice-icon">⚠️</span>
-    <span class="notice-text">사교육에서의 활용에 동의하지 않습니다. 공교육의 범위 안에서 사용해주시기 바랍니다.</span>
+  </div>  <div class="notice-bar">
+    <span class="notice-text">⚠️ 공교육의 범위 안에서 사용해주시기 바랍니다. 사교육에서의 활용에 동의하지 않습니다.</span>
   </div>
 </header>
 
@@ -141,8 +298,9 @@ footer{background:#0d2a5e;color:rgba(255,255,255,.45);text-align:center;padding:
   <div class="search-wrap">
     <span class="s-ic">🔍</span>
     <input class="search-input" id="srch" type="text" placeholder="대학명 검색" autocomplete="off">
-    <button class="clr" id="clr" onclick="clearS()">✕</button>
+    <button class="clr" id="clr" onclick="clearSearch()">✕</button>
   </div>
+  
   <div class="rbtns" id="rbtns"></div>
 </div>
 
@@ -151,61 +309,173 @@ footer{background:#0d2a5e;color:rgba(255,255,255,.45);text-align:center;padding:
   <div id="body"></div>
 </div>
 
-<footer>경기진학지도협의회 · 2028 대입전형 시행계획 나침반</footer>
+<footer>경기진학지도협의회 · 대학 정보 나침반 · 2028 대입전형 시행계획</footer>
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-const DATA = [{"name": "가천대", "region": "경기", "url": "https://drive.google.com/open?id=1e6JayrALWW2Smzli4M8zd7Pq7dpx2g5C"}, {"name": "가톨릭대", "region": "서울", "url": "https://drive.google.com/open?id=1-vdDECCcglZ2ZRT2gTzwbjC1ILCdjgGp"}, {"name": "강남대", "region": "경기", "url": "https://drive.google.com/open?id=1FOt26aL1JtY4xXWzokEHELYLWGzlv8lB"}, {"name": "강서대", "region": "서울", "url": "https://drive.google.com/open?id=1jOKHlrbPRvw_hCPlLgL575Q8EE8Gw-0p"}, {"name": "강원대(춘천)", "region": "강원", "url": "https://drive.google.com/file/d/1NgwACUYKPyIlZ6ggoYLnLdaZQEjC7zUi/view?usp=drive_link"}, {"name": "건국대 글로컬", "region": "충북", "url": "https://drive.google.com/open?id=18FRqr5DgVWFCU03zI1yGkTdrDGIvAc44"}, {"name": "건국대", "region": "서울", "url": "https://drive.google.com/open?id=1oiV1aENYl0xBznkpPrDST5EpXzlEGisK"}, {"name": "경기대", "region": "경기", "url": "https://drive.google.com/open?id=1vgVGzs9jKDLfDap8J5gn76ci3N1ObU5W"}, {"name": "경상국립대", "region": "경남", "url": "https://drive.google.com/open?id=1xAL4pPBtSnWjoXC6y9i-V2YdjUjJ1438"}, {"name": "경희대", "region": "서울", "url": "https://drive.google.com/open?id=1gGE2Ua8wI9kDTrPPsJ22ZnQIApHR760t"}, {"name": "고려대", "region": "서울", "url": "https://drive.google.com/open?id=1d007JpZi2EMpe2AKIGOfWXwMMQfbZ6Jl"}, {"name": "광운대", "region": "서울", "url": "https://drive.google.com/open?id=1KSTWnOKI1swNg5q_L41jnDUqkMVk41cm"}, {"name": "국민대", "region": "서울", "url": "https://drive.google.com/open?id=1YB6ePfrXmqB5HMDcoGAtUFhoe-c1lJls"}, {"name": "단국대(죽전, 천안 통합)", "region": "경기", "url": "https://drive.google.com/open?id=1Fe7ccQX5v8aCxC1j46-QkMmaYdFoLctS"}, {"name": "대구교대", "region": "대구", "url": "https://drive.google.com/open?id=1tgoZ9XL3hpL0_L76Kltfk4b09DS9IQ-P"}, {"name": "대전신학대", "region": "대전", "url": "https://drive.google.com/open?id=1Tqxett-vQ7Rm2N19B1BB9Km737WLio8W"}, {"name": "대진대", "region": "경기", "url": "https://drive.google.com/open?id=1O4GiX1f0o2tmHawuTozJsIg7pT4mFD-7"}, {"name": "덕성여대", "region": "서울", "url": "https://drive.google.com/open?id=1FVjCqNzkF5taSwPlNNU8hwXAtCtb2L1m"}, {"name": "동국대", "region": "서울", "url": "https://drive.google.com/open?id=1-8dyqXRbDkWOioKV83jZXtcldQgBSulE"}, {"name": "동덕여대", "region": "서울", "url": "https://drive.google.com/open?id=1ghbUYgrtGQx_oCVgpQd6gXGkvUK3pxNB"}, {"name": "루터대", "region": "경기", "url": "https://drive.google.com/open?id=19YGREAor525E4YhIv7PYLbaUEsp5lzmK"}, {"name": "명지대(서울, 용인 통합)", "region": "서울", "url": "https://drive.google.com/open?id=1pN7aR--I_8xKIkzV8VL9czbQYfH-ED22"}, {"name": "목원대", "region": "대전", "url": "https://drive.google.com/open?id=1zHyi6kmhCgu2g6aP4_-v9nr5SPgvC0zM"}, {"name": "배재대", "region": "대전", "url": "https://drive.google.com/open?id=1omJC_B_uyY1tV0mfPojEOJYoq4Z2mvgO"}, {"name": "부산교대", "region": "부산", "url": "https://drive.google.com/open?id=1UA-BochF7_x3D5ZUDRnrNhtKMD6ZZqPD"}, {"name": "삼육대", "region": "서울", "url": "https://drive.google.com/open?id=1yRUZbsIyycMZy2AU5fTJMn1XsnuxQzEy"}, {"name": "상명대", "region": "서울", "url": "https://drive.google.com/open?id=1jFnVSgAM1NUkFg8JsYB_WfmPI1bsSQYX"}, {"name": "상명대(천안)", "region": "충남", "url": "https://drive.google.com/open?id=1OUBOm5yt-Xj7Dyn0h22BwDAGdMiA9ZUS"}, {"name": "상지대", "region": "강원", "url": "https://drive.google.com/open?id=1txaURMsS-HzAIrRUgGL2VU-oOJ60-CzY"}, {"name": "서강대", "region": "서울", "url": "https://drive.google.com/open?id=1iLtNCPMqk751nXsyD8wgEha0qWPSwuSQ"}, {"name": "서경대", "region": "서울", "url": "https://drive.google.com/open?id=1A5LDPxz8hdZy505JR4oTAvQjHtTOvTv_"}, {"name": "서울과기대", "region": "서울", "url": "https://drive.google.com/open?id=19cQ7yW6eSJeiQGg1THLc7er5UClQmyMR"}, {"name": "서울교대", "region": "서울", "url": "https://drive.google.com/open?id=1vV3L_OAczmQuoOnLAE21hhGbscgpodAG"}, {"name": "서울대", "region": "서울", "url": "https://drive.google.com/open?id=1bvEkkRsWvn5PDJvtICZ7xqAV-8dG3cfQ"}, {"name": "서울시립대", "region": "서울", "url": "https://drive.google.com/open?id=1GTFDkV1BxnQZyVw-7SGau1H2cz6dZWw8"}, {"name": "서울신학대", "region": "경기", "url": "https://drive.google.com/open?id=19q5HLzXjuIq5dFpqiGa5-cnDfrURjM6Y"}, {"name": "서울여대", "region": "서울", "url": "https://drive.google.com/open?id=1KT9vFZZOkmJqVTFlkd5xs0yNAZBA5heE"}, {"name": "서울한영대", "region": "서울", "url": "https://drive.google.com/open?id=1809SOx4mP7v5Ry2ITTYjXxxmN5UPoEfi"}, {"name": "성결대", "region": "경기", "url": "https://drive.google.com/open?id=1beDB3U4T9AwsLGxVYIznqmodrH774Vlo"}, {"name": "성공회대", "region": "서울", "url": "https://drive.google.com/open?id=1f-JaNGwqhoj5wRpVPyPaHz8kR8c8oSXt"}, {"name": "성균관대", "region": "서울", "url": "https://drive.google.com/open?id=1rB-RUieTYBroJ9CQiP3eB2FSS8QOF7hU"}, {"name": "성신여대", "region": "서울", "url": "https://drive.google.com/open?id=1gU0XVoGiHNL4vnCEKI69bSZN_O1b4gHT"}, {"name": "세종대", "region": "서울", "url": "https://drive.google.com/open?id=1YfV_KCxA1ANe3waidwHMvy5NoDWPuWrD"}, {"name": "수원대", "region": "경기", "url": "https://drive.google.com/open?id=1lK08b4Z1yzjJtwceomcod4vby8fTVC5I"}, {"name": "숙명여대", "region": "서울", "url": "https://drive.google.com/open?id=1gK0X4gIRZQc_njXTIw6qPBsz5RUNQU-o"}, {"name": "순천향대", "region": "충남", "url": "https://drive.google.com/open?id=1AT0fpwQmGbb9da5joY5JlnIK1-etNcxB"}, {"name": "숭실대", "region": "서울", "url": "https://drive.google.com/open?id=1X56oSxZ-4RsYAwSnaZueS_duBtx1Yj49"}, {"name": "신한대", "region": "경기", "url": "https://drive.google.com/open?id=11QhBfgTUq2anaRjshshsCd1b1x4ULZ1i"}, {"name": "아주대", "region": "경기", "url": "https://drive.google.com/open?id=10_r1wV8fnH7Cl0ZluaFtfVO4PsD-Tuvj"}, {"name": "안양대", "region": "경기", "url": "https://drive.google.com/open?id=1IgwbLoEFF_0WYs7sJjyoOTo8h4yn32oR"}, {"name": "연세대", "region": "서울", "url": "https://drive.google.com/open?id=1yPVslVag5sEUrrXURemqNATiwFAgTpCX"}, {"name": "연세대(미래)", "region": "강원", "url": "https://drive.google.com/open?id=1K5v8rjwzwnZOTLNAINzhTAnGb8jKuqLr"}, {"name": "예원예술대", "region": "전북", "url": "https://drive.google.com/open?id=1uk6ghzuxp0jM-9G7ewOfrtpEuPU5xHgK"}, {"name": "용인대", "region": "경기", "url": "https://drive.google.com/open?id=1DV760A6rDgvwYrYEZApqj5Yp7HyP9pAL"}, {"name": "을지대", "region": "경기", "url": "https://drive.google.com/open?id=1PFeqKRy1tAoT9S7SZtukA7_ZNFOR8_eR"}, {"name": "이화여대", "region": "서울", "url": "https://drive.google.com/file/d/1VQgE3qjrK39g1ajC8bPfSP4WIPbuimrU/view?usp=sharing"}, {"name": "인천대", "region": "인천", "url": "https://drive.google.com/open?id=1IbGH77ZtJvdmwrnqezwSY8iJqTJFOtRK"}, {"name": "인하대", "region": "인천", "url": "https://drive.google.com/open?id=1krndaYhMEqrtEDO2-NwgwZT6R-CkgXMH"}, {"name": "장로회신학대", "region": "서울", "url": "https://drive.google.com/open?id=1JyMa9nasp4oXTiKVUzIperL7Cap28BuP"}, {"name": "전북대", "region": "전북", "url": "https://drive.google.com/open?id=155SYHT5jF3kAMToms1UECmQcLEFX6qlr"}, {"name": "제주대", "region": "제주", "url": "https://drive.google.com/open?id=1wbYinhGXzxgwGvGvQrBCXvM7ZJ73pF5l"}, {"name": "중앙대", "region": "서울", "url": "https://drive.google.com/open?id=17IHwSINrAaUb8F9WzTkyi2b1r0SK5FzZ"}, {"name": "진주교대", "region": "경남", "url": "https://drive.google.com/open?id=1EQl5WDNeeRFIQWUJ5E2A0h142sVgVB0Q"}, {"name": "차의과학대", "region": "경기", "url": "https://drive.google.com/open?id=1_XIusVqfr9d4-QGzYbj03Wk_4OcJFJjE"}, {"name": "청주교대", "region": "충북", "url": "https://drive.google.com/open?id=1P-ozkErusEhug7KQA-EbzSc0aMwsQpxz"}, {"name": "총신대", "region": "서울", "url": "https://drive.google.com/open?id=1xUP_9fly_RKvjSUvLCYB4kRFkOYNceEb"}, {"name": "추계예술대", "region": "서울", "url": "https://drive.google.com/open?id=1pdZub7FaGgNY_ZVqp8ecBCJP3OwM0A6R"}, {"name": "춘천교대", "region": "강원", "url": "https://drive.google.com/open?id=1LxYTx9owvq54ZxVG6EsVQQkLAP-NJCyJ"}, {"name": "충남대", "region": "대전", "url": "https://drive.google.com/open?id=1HLYQmFQNUzslk_wwA8EciFyDAus6y8cA"}, {"name": "충북대", "region": "충북", "url": "https://drive.google.com/open?id=1j9AIjyMFe_bdmaPlf-3TVSi-meC4ua2F"}, {"name": "칼빈대", "region": "경기", "url": "https://drive.google.com/open?id=1pZIW8ruJhmRDyWe3VeMegIzRdVQT0Lyh"}, {"name": "평택대", "region": "경기", "url": "https://drive.google.com/open?id=1N-cRlvnMVh2jmuTjpyWUOB7LTnWRCfFD"}, {"name": "포항공대", "region": "경북", "url": "https://drive.google.com/open?id=1kYe5WH2V7uleOFHSx7ME14WqfdhppOO0"}, {"name": "한경국립대", "region": "경기", "url": "https://drive.google.com/open?id=1-Txu4Of_5aMSXl9IfEFxFaNR3OmdUl_V"}, {"name": "한국공학대", "region": "경기", "url": "https://drive.google.com/open?id=16xGrxGfK6pDa7Lx_tBpzzSZ_ZKKKg8jC"}, {"name": "한국교원대", "region": "충북", "url": "https://drive.google.com/open?id=1W3AcKDFSfpAfsGsz4i_arBSWaRNtRrRm"}, {"name": "한국성서대", "region": "서울", "url": "https://drive.google.com/open?id=1sKkNx-YVx4iBpdk741uxBzpaLq9jaihQ"}, {"name": "한국외대", "region": "서울", "url": "https://drive.google.com/open?id=18D47sENDi2Yq7W_SeRI8mOzlRSro58uG"}, {"name": "한국체대", "region": "서울", "url": "https://drive.google.com/open?id=1SJDBGRhXREkCbwabba83tlnYKRrzH1-G"}, {"name": "한국침례신학대학교", "region": "대전", "url": "https://drive.google.com/open?id=1m54i9tGf_K8vxK_-06N6Z-KLN62vXa56"}, {"name": "한국항공대", "region": "경기", "url": "https://drive.google.com/open?id=1YUU4wJ9L8I7LzyH0cudbQFkoHgAFJJ2-"}, {"name": "한성대", "region": "서울", "url": "https://drive.google.com/open?id=1TDK-UJueFe0bQxejGnmBta3y7GQ6sMvf"}, {"name": "한세대", "region": "경기", "url": "https://drive.google.com/open?id=1WIBdL0StZq4jeCaM2FgtDqBB-qiSWNP5"}, {"name": "한신대", "region": "경기", "url": "https://drive.google.com/open?id=15AxjX3ikuwRxCGQtmWgw8f5TJrFl78Mu"}, {"name": "한양대", "region": "서울", "url": "https://drive.google.com/open?id=1L9GDoXkwtyU3pSDWpI-uarpPnDzbPQSZ"}, {"name": "한양대(ERICA)", "region": "경기", "url": "https://drive.google.com/open?id=1-ScJVd9ICO7EIy_A9Fam7aqIrMAdYaOA"}, {"name": "홍익대", "region": "서울", "url": "https://drive.google.com/open?id=1iWJU_uR5reI4JWpSombXZHwUlYfm7m7w"}, {"name": "화성의과학대", "region": "경기", "url": "https://drive.google.com/open?id=1Vb84PfEafHQOFkkfg967zYJQLMs7VEtB"}, {"name": "동국대(WISE)", "region": "경북", "url": "https://drive.google.com/file/d/1N066glyfNnLILySf8Rw7jzsszPjKdm8j/view?usp=drive_link"}, {"name": "부산대", "region": "부산", "url": "https://drive.google.com/file/d/1npqTopTsZW1mW4M2lDzBOp3PH9wwJcZU/view?usp=drive_link"}, {"name": "서울장신대", "region": "경기", "url": "https://drive.google.com/file/d/1wyJ5PRkqCv8IL-QQHUMFUch-XRaAehPy/view?usp=drive_link"}, {"name": "전남대", "region": "광주", "url": "https://drive.google.com/file/d/1cIpvRgL0src-iSlpyqqUnlQl_2Iiqzym/view?usp=drive_link"}, {"name": "중앙승가대", "region": "경기", "url": "https://drive.google.com/file/d/1o7JVtebQGiqBExAS855cPdAeXMP8_CGY/view?usp=drive_link"}, {"name": "경인교대", "region": "경기", "url": "https://drive.google.com/file/d/1I1VO_0wmkkbZDqSSDJvjSZkVz2_3kTt9/view?usp=sharing"}];
-const REGION_ORDER = ['서울','경기','인천','강원','경남','경북','광주','대구','대전','부산','전북','제주','충남','충북'];
-let selR='ALL', srch='';
+// ── 데이터 ──────────────────────────────────────────────────────────────────
 
-function korSort(a,b){return a.name.localeCompare(b.name,'ko')}
-function grouped(arr){
-  const m={};
-  arr.forEach(u=>{if(!m[u.region])m[u.region]=[];m[u.region].push(u);});
-  Object.keys(m).forEach(k=>m[k].sort(korSort));
-  return m;
+// 입학처 데이터: {지역: [[대학명, URL, 설립유형], ...]}
+const HOME_RAW = {
+  "서울": [["건국대학교","https://enter.konkuk.ac.kr/main.do","사립"],["경희대학교","https://iphak.khu.ac.kr","사립"],["고려대학교","https://oku.korea.ac.kr","사립"],["광운대학교","https://iphak.kw.ac.kr/main.php","사립"],["국민대학교","https://admission.kookmin.ac.kr","사립"],["덕성여자대학교","https://www.duksung.ac.kr/iphak/main.do","사립"],["동국대학교","https://ipsi.dongguk.edu","사립"],["동덕여자대학교","https://ipsi.dongduk.ac.kr","사립"],["명지대학교","https://iphak.mju.ac.kr","사립"],["삼육대학교","https://ipsi.syu.ac.kr","사립"],["상명대학교","https://admission.smu.ac.kr","사립"],["서강대학교","https://admission.sogang.ac.kr/enter/html/main/index.asp","사립"],["서경대학교","https://go.skuniv.ac.kr","사립"],["서울과학기술대학교","https://admission.seoultech.ac.kr","국립"],["서울대학교","https://admission.snu.ac.kr","국립"],["서울시립대학교","https://admission.uos.ac.kr","공립"],["서울여자대학교","https://admission.swu.ac.kr","사립"],["성균관대학교","https://admission.skku.edu","사립"],["성신여자대학교","https://admission.sungshin.ac.kr","사립"],["세종대학교","https://ipsi.sejong.ac.kr","사립"],["숙명여자대학교","https://admission.sookmyung.ac.kr/admission/html/main/main.asp","사립"],["숭실대학교","https://iphak.ssu.ac.kr","사립"],["연세대학교","https://admission.yonsei.ac.kr","사립"],["이화여자대학교","https://admission.ewha.ac.kr","사립"],["중앙대학교","https://admission.cau.ac.kr/main.do","사립"],["추계예술대학교","https://enter.chugye.ac.kr/main.do","사립"],["한국외국어대학교","https://adms.hufs.ac.kr/index.do","사립"],["한국체육대학교","https://www.knsu.ac.kr/ipsi/index.do","국립"],["한성대학교","https://enter.hansung.ac.kr","사립"],["한양대학교","https://go.hanyang.ac.kr/gate.do","사립"],["홍익대학교","https://admission.hongik.ac.kr/main","사립"],["강서대","https://entrance.gangseo.ac.kr/kcui/mainService","사립"],["성공회대","https://enter.skhu.ac.kr/enter/index.do","사립"],["장로회신학대","https://www.puts.ac.kr/ipsi/db/db_admission_v1/","사립"],["총신대","https://admission.csu.ac.kr/","사립"],["한국성서대","https://ipsi.bible.ac.kr/","사립"]],
+  "경기": [["가천대학교","https://admission.gachon.ac.kr","사립"],["가톨릭대학교","https://ipsi.catholic.ac.kr","사립"],["강남대학교","https://admission.kangnam.ac.kr/main.htm","사립"],["경기대학교","https://enter.kyonggi.ac.kr/index.do","사립"],["단국대학교","https://ipsi.dankook.ac.kr/intro.html","사립"],["대진대학교","https://admission.daejin.ac.kr/main.do","사립"],["성결대학교","https://ipsi.sungkyul.ac.kr","사립"],["수원대학교","https://ipsi.suwon.ac.kr/","사립"],["아주대학교","https://www.iajou.ac.kr","사립"],["안양대학교","https://enter.anyang.ac.kr/main","사립"],["용인대학교","https://ipsi.yongin.ac.kr/index.do","사립"],["을지대학교","https://admission.eulji.ac.kr/","사립"],["차의과학대학교","https://admission.cha.ac.kr","사립"],["평택대학교","https://entrance.ptu.ac.kr","사립"],["한국항공대학교","https://ibhak.kau.ac.kr","사립"],["한세대학교","https://ipsi.hansei.ac.kr/sites/ipsi/index.do","사립"],["한신대학교","https://ent.hs.ac.kr","사립"],["한양대학교(ERICA)","https://goerica.hanyang.ac.kr/admission/html/main/main.asp","사립"],["협성대학교","https://iphak.uhs.ac.kr/jungsi/mojip.do","사립"],["경인교대","https://ipsi.ginue.ac.kr/ipsi/Main.do","국립"],["루터대","http://ltu-admission.ac.kr/index_.html","사립"],["신한대","https://ipsi.shinhan.ac.kr/","사립"],["칼빈대","http://www.calvin.ac.kr/iphak/index.do","사립"],["한경국립대","https://ipsi.hknu.ac.kr/","국립"],["한국공학대","https://iphak.tukorea.ac.kr/main.htm","사립"],["화성의과학대","https://www.hsmu.ac.kr/admission/main/index.do","사립"]],
+  "인천": [["인천대학교","https://admission.inu.ac.kr/main.do","공립"],["인하대학교","https://admission.inha.ac.kr","사립"]],
+  "강원": [["가톨릭관동대학교","https://www.cku.ac.kr/iphak/index.do","사립"],["강릉원주대학교","https://iphak.gwnu.ac.kr/sites/iphak/index.do","국립"],["강원대학교","https://admission.kangwon.ac.kr","국립"],["상지대학교","https://www.sangji.ac.kr/go/index.do","사립"],["연세대학교(미래)","https://mirae.yonsei.ac.kr/wj/2349/subview.do","사립"],["한림대학교","https://admission.hallym.ac.kr/admission/index.do","사립"],["춘천교대","https://www.cnue.ac.kr/enter/index.do","국립"]],
+  "대전": [["KAIST","https://admission.kaist.ac.kr","국립"],["목원대학교","https://enter.mokwon.ac.kr","사립"],["배재대학교","https://enter.pcu.ac.kr","사립"],["우송대학교","https://ent.wsu.ac.kr","사립"],["한남대학교","https://ibsi.hannam.ac.kr","사립"],["한밭대학교","https://www.hanbat.ac.kr/admission/","국립"],["대전신학대","https://ipsi.daejeon.ac.kr/","사립"],["한국침례신학대학교","https://ipsi.kbtus.ac.kr/ipsi/Main.do","사립"]],
+  "충북": [["서원대학교","https://www.seowon.ac.kr/iphak/index.do","사립"],["청주대학교","https://www.cju.ac.kr/ipsi/index.do","사립"],["충북대학교","https://ipsi.chungbuk.ac.kr","국립"],["한국교원대","https://www.knue.ac.kr/ipsi/index.do","국립"],["건국대 글로컬","https://ibsi.konkuk.ac.kr","사립"]],
+  "충남": [["건양대학교","https://ipsi.konyang.ac.kr","사립"],["공주대학교","https://ipsi.kongju.ac.kr","국립"],["나사렛대학교","https://ipsi.kornu.ac.kr/sites/ipsi/index.do","사립"],["남서울대학교","https://consult.mncapro.co.kr/solution/nsuipsi","사립"],["백석대학교","https://ipsi.bu.ac.kr","사립"],["순천향대학교","https://ipsi.sch.ac.kr","사립"],["충남대학교","https://ipsi.cnu.ac.kr","국립"],["한국기술교육대학교","https://www.koreatech.ac.kr/index.es?sid=a4","국립"],["호서대학교","https://ipsi.hoseo.ac.kr","사립"],["상명대(천안)","https://admission.smu.ac.kr","사립"]],
+  "대구": [["DGIST","https://admission.dgist.ac.kr","국립"],["대구교대","https://ipsi.dnue.ac.kr","국립"]],
+  "경북": [["POSTECH","https://adm-u.postech.ac.kr/","사립"],["경북대학교","https://ipsi1.knu.ac.kr","국립"],["계명대학교","https://www.gokmu.ac.kr","사립"],["국립경국대","https://www.gknu.ac.kr/main/html.do?menu_idx=2","국립"],["금오공과대학교","https://www.kumoh.ac.kr/ipsi/index.do","국립"],["대구가톨릭대학교","https://ibsi.cu.ac.kr","사립"],["대구대학교","https://ipsi.daegu.ac.kr","사립"],["영남대학교","https://enter.yu.ac.kr","사립"]],
+  "부산": [["경성대학교","https://ipsi.ks.ac.kr","사립"],["고신대학교","https://dream.kosin.ac.kr","사립"],["동아대학교","https://ent.donga.ac.kr","사립"],["동의대학교","https://www.deu.ac.kr/Admissions/index.htm","사립"],["부경대학교","https://iphak.pknu.ac.kr","국립"],["부산대학교","https://go.pusan.ac.kr","국립"],["부산외국어대학교","https://enter.bufs.ac.kr","사립"],["부산교대","https://www.bnue.ac.kr/ipsi","국립"]],
+  "경남": [["가야대학교","https://ipsi.kaya.ac.kr","사립"],["경남대학교","https://ipsi.kyungnam.ac.kr","사립"],["경상국립대학교","https://www.gnu.ac.kr/new/main.do","국립"],["동서대학교","https://ipsi.dongseo.ac.kr","사립"],["신라대학교","https://ipsi.silla.ac.kr","사립"],["영산대학교","https://www.ysu.ac.kr/ysu/1010/subview.do","사립"],["인제대학교","https://iphak.inje.ac.kr","사립"],["창원대학교","https://www.changwon.ac.kr/ipsi/main.do","국립"],["한국해양대학교","https://www.kmou.ac.kr/ipsi/","국립"],["한동대학교","https://www.handong.edu/kor/admission","사립"],["진주교대","https://www.cue.ac.kr/enter/Main.do","국립"]],
+  "울산": [["UNIST","https://adm-u.unist.ac.kr/admission/index.do","국립"],["울산대학교","https://iphak.ulsan.ac.kr","사립"]],
+  "광주": [["GIST","https://admission.gist.ac.kr","국립"],["광주대학교","https://iphak.gwangju.ac.kr","사립"],["광주여자대학교","https://ipsi.kwu.ac.kr","사립"],["조선대학교","https://i.chosun.ac.kr/intro","사립"],["호남대학교","https://enter.honam.ac.kr","사립"]],
+  "전북": [["우석대학교","https://enter.woosuk.ac.kr","사립"],["원광대학교","https://ipsi.wku.ac.kr","사립"],["전북대학교","https://enter.jbnu.ac.kr","국립"],["전주대학교","https://iphak.jj.ac.kr","사립"],["예원예술대","https://admission.yewon.ac.kr/main/","사립"]],
+  "전남": [["동신대학교","https://www.dsu.ac.kr/dsu/1001/subview.do","사립"],["목포대학교","https://ipsi.mokpo.ac.kr","국립"],["세한대학교","https://www.sehan.ac.kr/sehan/1004/subview.do","사립"],["순천대학교","https://www.scnu.ac.kr/iphak/main.do","국립"],["전남대학교","https://admission.jnu.ac.kr","국립"]],
+  "제주": [["제주국제대학교","https://apply.jeju.ac.kr","사립"],["제주대학교","https://ibsi.jejunu.ac.kr","국립"]]
+};
+// 나침반 데이터: [{name, region, url}]
+const PDF_RAW = [{"name":"가천대","region":"경기","url":"https://drive.google.com/open?id=1e6JayrALWW2Smzli4M8zd7Pq7dpx2g5C"},{"name":"가톨릭대","region":"서울","url":"https://drive.google.com/open?id=1-vdDECCcglZ2ZRT2gTzwbjC1ILCdjgGp"},{"name":"강남대","region":"경기","url":"https://drive.google.com/open?id=1FOt26aL1JtY4xXWzokEHELYLWGzlv8lB"},{"name":"강서대","region":"서울","url":"https://drive.google.com/open?id=1jOKHlrbPRvw_hCPlLgL575Q8EE8Gw-0p"},{"name":"강원대(춘천)","region":"강원","url":"https://drive.google.com/file/d/1NgwACUYKPyIlZ6ggoYLnLdaZQEjC7zUi/view?usp=drive_link"},{"name":"건국대 글로컬","region":"충북","url":"https://drive.google.com/open?id=18FRqr5DgVWFCU03zI1yGkTdrDGIvAc44"},{"name":"건국대","region":"서울","url":"https://drive.google.com/open?id=1oiV1aENYl0xBznkpPrDST5EpXzlEGisK"},{"name":"경기대","region":"경기","url":"https://drive.google.com/open?id=1vgVGzs9jKDLfDap8J5gn76ci3N1ObU5W"},{"name":"경상국립대","region":"경남","url":"https://drive.google.com/open?id=1xAL4pPBtSnWjoXC6y9i-V2YdjUjJ1438"},{"name":"경희대","region":"서울","url":"https://drive.google.com/open?id=1gGE2Ua8wI9kDTrPPsJ22ZnQIApHR760t"},{"name":"고려대","region":"서울","url":"https://drive.google.com/open?id=1d007JpZi2EMpe2AKIGOfWXwMMQfbZ6Jl"},{"name":"광운대","region":"서울","url":"https://drive.google.com/open?id=1KSTWnOKI1swNg5q_L41jnDUqkMVk41cm"},{"name":"국민대","region":"서울","url":"https://drive.google.com/open?id=1YB6ePfrXmqB5HMDcoGAtUFhoe-c1lJls"},{"name":"단국대(죽전, 천안 통합)","region":"경기","url":"https://drive.google.com/open?id=1Fe7ccQX5v8aCxC1j46-QkMmaYdFoLctS"},{"name":"대구교대","region":"대구","url":"https://drive.google.com/open?id=1tgoZ9XL3hpL0_L76Kltfk4b09DS9IQ-P"},{"name":"대전신학대","region":"대전","url":"https://drive.google.com/open?id=1Tqxett-vQ7Rm2N19B1BB9Km737WLio8W"},{"name":"대진대","region":"경기","url":"https://drive.google.com/open?id=1O4GiX1f0o2tmHawuTozJsIg7pT4mFD-7"},{"name":"덕성여대","region":"서울","url":"https://drive.google.com/open?id=1FVjCqNzkF5taSwPlNNU8hwXAtCtb2L1m"},{"name":"동국대","region":"서울","url":"https://drive.google.com/open?id=1-8dyqXRbDkWOioKV83jZXtcldQgBSulE"},{"name":"동덕여대","region":"서울","url":"https://drive.google.com/open?id=1ghbUYgrtGQx_oCVgpQd6gXGkvUK3pxNB"},{"name":"루터대","region":"경기","url":"https://drive.google.com/open?id=19YGREAor525E4YhIv7PYLbaUEsp5lzmK"},{"name":"명지대(서울, 용인 통합)","region":"서울","url":"https://drive.google.com/open?id=1pN7aR--I_8xKIkzV8VL9czbQYfH-ED22"},{"name":"목원대","region":"대전","url":"https://drive.google.com/open?id=1zHyi6kmhCgu2g6aP4_-v9nr5SPgvC0zM"},{"name":"배재대","region":"대전","url":"https://drive.google.com/open?id=1omJC_B_uyY1tV0mfPojEOJYoq4Z2mvgO"},{"name":"부산교대","region":"부산","url":"https://drive.google.com/open?id=1UA-BochF7_x3D5ZUDRnrNhtKMD6ZZqPD"},{"name":"삼육대","region":"서울","url":"https://drive.google.com/open?id=1yRUZbsIyycMZy2AU5fTJMn1XsnuxQzEy"},{"name":"상명대","region":"서울","url":"https://drive.google.com/open?id=1jFnVSgAM1NUkFg8JsYB_WfmPI1bsSQYX"},{"name":"상명대(천안)","region":"충남","url":"https://drive.google.com/open?id=1OUBOm5yt-Xj7Dyn0h22BwDAGdMiA9ZUS"},{"name":"상지대","region":"강원","url":"https://drive.google.com/open?id=1txaURMsS-HzAIrRUgGL2VU-oOJ60-CzY"},{"name":"서강대","region":"서울","url":"https://drive.google.com/open?id=1iLtNCPMqk751nXsyD8wgEha0qWPSwuSQ"},{"name":"서경대","region":"서울","url":"https://drive.google.com/open?id=1A5LDPxz8hdZy505JR4oTAvQjHtTOvTv_"},{"name":"서울과기대","region":"서울","url":"https://drive.google.com/open?id=19cQ7yW6eSJeiQGg1THLc7er5UClQmyMR"},{"name":"서울교대","region":"서울","url":"https://drive.google.com/open?id=1vV3L_OAczmQuoOnLAE21hhGbscgpodAG"},{"name":"서울대","region":"서울","url":"https://drive.google.com/open?id=1bvEkkRsWvn5PDJvtICZ7xqAV-8dG3cfQ"},{"name":"서울시립대","region":"서울","url":"https://drive.google.com/open?id=1GTFDkV1BxnQZyVw-7SGau1H2cz6dZWw8"},{"name":"서울신학대","region":"경기","url":"https://drive.google.com/open?id=19q5HLzXjuIq5dFpqiGa5-cnDfrURjM6Y"},{"name":"서울여대","region":"서울","url":"https://drive.google.com/open?id=1KT9vFZZOkmJqVTFlkd5xs0yNAZBA5heE"},{"name":"서울한영대","region":"서울","url":"https://drive.google.com/open?id=1809SOx4mP7v5Ry2ITTYjXxxmN5UPoEfi"},{"name":"성결대","region":"경기","url":"https://drive.google.com/open?id=1beDB3U4T9AwsLGxVYIznqmodrH774Vlo"},{"name":"성공회대","region":"서울","url":"https://drive.google.com/open?id=1f-JaNGwqhoj5wRpVPyPaHz8kR8c8oSXt"},{"name":"성균관대","region":"서울","url":"https://drive.google.com/open?id=1rB-RUieTYBroJ9CQiP3eB2FSS8QOF7hU"},{"name":"성신여대","region":"서울","url":"https://drive.google.com/open?id=1gU0XVoGiHNL4vnCEKI69bSZN_O1b4gHT"},{"name":"세종대","region":"서울","url":"https://drive.google.com/open?id=1YfV_KCxA1ANe3waidwHMvy5NoDWPuWrD"},{"name":"수원대","region":"경기","url":"https://drive.google.com/open?id=1lK08b4Z1yzjJtwceomcod4vby8fTVC5I"},{"name":"숙명여대","region":"서울","url":"https://drive.google.com/open?id=1gK0X4gIRZQc_njXTIw6qPBsz5RUNQU-o"},{"name":"순천향대","region":"충남","url":"https://drive.google.com/open?id=1AT0fpwQmGbb9da5joY5JlnIK1-etNcxB"},{"name":"숭실대","region":"서울","url":"https://drive.google.com/open?id=1X56oSxZ-4RsYAwSnaZueS_duBtx1Yj49"},{"name":"신한대","region":"경기","url":"https://drive.google.com/open?id=11QhBfgTUq2anaRjshshsCd1b1x4ULZ1i"},{"name":"아주대","region":"경기","url":"https://drive.google.com/open?id=10_r1wV8fnH7Cl0ZluaFtfVO4PsD-Tuvj"},{"name":"안양대","region":"경기","url":"https://drive.google.com/open?id=1IgwbLoEFF_0WYs7sJjyoOTo8h4yn32oR"},{"name":"연세대","region":"서울","url":"https://drive.google.com/open?id=1yPVslVag5sEUrrXURemqNATiwFAgTpCX"},{"name":"연세대(미래)","region":"강원","url":"https://drive.google.com/open?id=1K5v8rjwzwnZOTLNAINzhTAnGb8jKuqLr"},{"name":"예원예술대","region":"전북","url":"https://drive.google.com/open?id=1uk6ghzuxp0jM-9G7ewOfrtpEuPU5xHgK"},{"name":"용인대","region":"경기","url":"https://drive.google.com/open?id=1DV760A6rDgvwYrYEZApqj5Yp7HyP9pAL"},{"name":"을지대","region":"경기","url":"https://drive.google.com/open?id=1PFeqKRy1tAoT9S7SZtukA7_ZNFOR8_eR"},{"name":"이화여대","region":"서울","url":"https://drive.google.com/file/d/1VQgE3qjrK39g1ajC8bPfSP4WIPbuimrU/view?usp=sharing"},{"name":"인천대","region":"인천","url":"https://drive.google.com/open?id=1IbGH77ZtJvdmwrnqezwSY8iJqTJFOtRK"},{"name":"인하대","region":"인천","url":"https://drive.google.com/open?id=1krndaYhMEqrtEDO2-NwgwZT6R-CkgXMH"},{"name":"장로회신학대","region":"서울","url":"https://drive.google.com/open?id=1JyMa9nasp4oXTiKVUzIperL7Cap28BuP"},{"name":"전북대","region":"전북","url":"https://drive.google.com/open?id=155SYHT5jF3kAMToms1UECmQcLEFX6qlr"},{"name":"제주대","region":"제주","url":"https://drive.google.com/open?id=1wbYinhGXzxgwGvGvQrBCXvM7ZJ73pF5l"},{"name":"중앙대","region":"서울","url":"https://drive.google.com/open?id=17IHwSINrAaUb8F9WzTkyi2b1r0SK5FzZ"},{"name":"진주교대","region":"경남","url":"https://drive.google.com/open?id=1EQl5WDNeeRFIQWUJ5E2A0h142sVgVB0Q"},{"name":"차의과학대","region":"경기","url":"https://drive.google.com/open?id=1_XIusVqfr9d4-QGzYbj03Wk_4OcJFJjE"},{"name":"청주교대","region":"충북","url":"https://drive.google.com/open?id=1P-ozkErusEhug7KQA-EbzSc0aMwsQpxz"},{"name":"총신대","region":"서울","url":"https://drive.google.com/open?id=1xUP_9fly_RKvjSUvLCYB4kRFkOYNceEb"},{"name":"추계예술대","region":"서울","url":"https://drive.google.com/open?id=1pdZub7FaGgNY_ZVqp8ecBCJP3OwM0A6R"},{"name":"춘천교대","region":"강원","url":"https://drive.google.com/open?id=1LxYTx9owvq54ZxVG6EsVQQkLAP-NJCyJ"},{"name":"충남대","region":"대전","url":"https://drive.google.com/open?id=1HLYQmFQNUzslk_wwA8EciFyDAus6y8cA"},{"name":"충북대","region":"충북","url":"https://drive.google.com/open?id=1j9AIjyMFe_bdmaPlf-3TVSi-meC4ua2F"},{"name":"칼빈대","region":"경기","url":"https://drive.google.com/open?id=1pZIW8ruJhmRDyWe3VeMegIzRdVQT0Lyh"},{"name":"평택대","region":"경기","url":"https://drive.google.com/open?id=1N-cRlvnMVh2jmuTjpyWUOB7LTnWRCfFD"},{"name":"포항공대","region":"경북","url":"https://drive.google.com/open?id=1kYe5WH2V7uleOFHSx7ME14WqfdhppOO0"},{"name":"한경국립대","region":"경기","url":"https://drive.google.com/open?id=1-Txu4Of_5aMSXl9IfEFxFaNR3OmdUl_V"},{"name":"한국공학대","region":"경기","url":"https://drive.google.com/open?id=16xGrxGfK6pDa7Lx_tBpzzSZ_ZKKKg8jC"},{"name":"한국교원대","region":"충북","url":"https://drive.google.com/open?id=1W3AcKDFSfpAfsGsz4i_arBSWaRNtRrRm"},{"name":"한국성서대","region":"서울","url":"https://drive.google.com/open?id=1sKkNx-YVx4iBpdk741uxBzpaLq9jaihQ"},{"name":"한국외대","region":"서울","url":"https://drive.google.com/open?id=18D47sENDi2Yq7W_SeRI8mOzlRSro58uG"},{"name":"한국체대","region":"서울","url":"https://drive.google.com/open?id=1SJDBGRhXREkCbwabba83tlnYKRrzH1-G"},{"name":"한국침례신학대학교","region":"대전","url":"https://drive.google.com/open?id=1m54i9tGf_K8vxK_-06N6Z-KLN62vXa56"},{"name":"한국항공대","region":"경기","url":"https://drive.google.com/open?id=1YUU4wJ9L8I7LzyH0cudbQFkoHgAFJJ2-"},{"name":"한성대","region":"서울","url":"https://drive.google.com/open?id=1TDK-UJueFe0bQxejGnmBta3y7GQ6sMvf"},{"name":"한세대","region":"경기","url":"https://drive.google.com/open?id=1WIBdL0StZq4jeCaM2FgtDqBB-qiSWNP5"},{"name":"한신대","region":"경기","url":"https://drive.google.com/open?id=15AxjX3ikuwRxCGQtmWgw8f5TJrFl78Mu"},{"name":"한양대","region":"서울","url":"https://drive.google.com/open?id=1L9GDoXkwtyU3pSDWpI-uarpPnDzbPQSZ"},{"name":"한양대(ERICA)","region":"경기","url":"https://drive.google.com/open?id=1-ScJVd9ICO7EIy_A9Fam7aqIrMAdYaOA"},{"name":"홍익대","region":"서울","url":"https://drive.google.com/open?id=1iWJU_uR5reI4JWpSombXZHwUlYfm7m7w"},{"name":"화성의과학대","region":"경기","url":"https://drive.google.com/open?id=1Vb84PfEafHQOFkkfg967zYJQLMs7VEtB"},{"name":"동국대(WISE)","region":"경북","url":"https://drive.google.com/file/d/1N066glyfNnLILySf8Rw7jzsszPjKdm8j/view?usp=drive_link"},{"name":"부산대","region":"부산","url":"https://drive.google.com/file/d/1npqTopTsZW1mW4M2lDzBOp3PH9wwJcZU/view?usp=drive_link"},{"name":"서울장신대","region":"경기","url":"https://drive.google.com/file/d/1wyJ5PRkqCv8IL-QQHUMFUch-XRaAehPy/view?usp=drive_link"},{"name":"전남대","region":"광주","url":"https://drive.google.com/file/d/1cIpvRgL0src-iSlpyqqUnlQl_2Iiqzym/view?usp=drive_link"},{"name":"중앙승가대","region":"경기","url":"https://drive.google.com/file/d/1o7JVtebQGiqBExAS855cPdAeXMP8_CGY/view?usp=drive_link"},{"name":"경인교대","region":"경기","url":"https://drive.google.com/file/d/1I1VO_0wmkkbZDqSSDJvjSZkVz2_3kTt9/view?usp=sharing"}];
+
+// ── 데이터 통합 ──────────────────────────────────────────────────────────────
+// PDF 맵 (간략명 → url) 생성 — 검색 매칭용 키 정규화
+function normalize(s) {
+  return s.replace(/\s|\(.*?\)|대학교$|대학$|대$/g, '').toLowerCase();
 }
 
-const allR=[...new Set(DATA.map(u=>u.region))];
-const ordR=REGION_ORDER.filter(r=>allR.includes(r));
+const pdfMap = new Map();
+PDF_RAW.forEach(u => {
+  pdfMap.set(normalize(u.name), { url: u.url, name: u.name, region: u.region });
+  pdfMap.set(u.name, { url: u.url, name: u.name, region: u.region }); // 원본도 저장
+});
 
-function renderBtns(){
-  document.getElementById('rbtns').innerHTML=
-    [['ALL','전체'],...ordR.map(r=>[r,r])].map(([v,l])=>
-      `<button class="rbtn${v===selR?' on':''}" onclick="setR('${v}')">${l}</button>`
+// 홈 데이터를 통합 형태로 변환
+const MERGED = []; // {name, region, type, homeUrl, pdfUrl}
+
+Object.entries(HOME_RAW).forEach(([region, arr]) => {
+  arr.forEach(([name, homeUrl, type]) => {
+    const nk = normalize(name);
+    const pdfEntry = pdfMap.get(name) || pdfMap.get(nk)
+      || [...pdfMap.entries()].find(([k]) => k.includes(nk) || nk.includes(k))?.[1];
+    MERGED.push({ name, region, type, homeUrl, pdfUrl: pdfEntry ? pdfEntry.url : null });
+  });
+});
+
+// PDF는 있지만 홈 데이터가 없는 항목 추가
+PDF_RAW.forEach(u => {
+  const nk = normalize(u.name);
+  const exists = MERGED.some(m => normalize(m.name) === nk || m.name === u.name
+    || normalize(m.name).includes(nk) || nk.includes(normalize(m.name)));
+  if (!exists) {
+    MERGED.push({ name: u.name, region: u.region, type: null, homeUrl: null, pdfUrl: u.url });
+  }
+});
+
+MERGED.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
+
+// 지역 목록
+const REGION_ORDER = ['서울','경기','인천','강원','경남','경북','광주','대구','대전','부산','전남','전북','제주','충남','충북','울산'];
+const allRegions = [...new Set(MERGED.map(u => u.region))];
+const orderedRegions = REGION_ORDER.filter(r => allRegions.includes(r));
+
+// ── 상태 ──────────────────────────────────────────────────────────────────
+let selRegion = 'ALL', srch = '';
+
+// ── 렌더링 ──────────────────────────────────────────────────────────────────
+
+
+function renderRegionBtns() {
+  document.getElementById('rbtns').innerHTML =
+    [['ALL','전체'], ...orderedRegions.map(r => [r, r])].map(([v, l]) =>
+      `<button class="rbtn${v === selRegion ? ' on' : ''}" onclick="setRegion('${v}')">${l}</button>`
     ).join('');
 }
 
-function render(){
-  let d=DATA;
-  if(selR!=='ALL') d=d.filter(u=>u.region===selR);
-  if(srch) d=d.filter(u=>u.name.includes(srch));
-  document.getElementById('cnt').textContent=d.length;
-  document.getElementById('ibar').innerHTML=`총 <span>${d.length}</span>개 대학`;
-  if(!d.length){
-    document.getElementById('body').innerHTML='<div class="empty"><div class="empty-ic">🔎</div>검색 결과가 없습니다.</div>';
+function getFiltered() {
+  return MERGED.filter(u => {
+    const regionOk = selRegion === 'ALL' || u.region === selRegion;
+    const searchOk = !srch || u.name.includes(srch) || (u.region && u.region.includes(srch));
+    return regionOk && searchOk;
+  });
+}
+
+function render() {
+  const filtered = getFiltered();
+  document.getElementById('cnt').textContent = filtered.length;
+  document.getElementById('ibar').innerHTML = `총 <span>${filtered.length}</span>개 대학`;
+
+  if (!filtered.length) {
+    document.getElementById('body').innerHTML = '<div class="empty"><div class="empty-ic">🔎</div>검색 결과가 없습니다.</div>';
     return;
   }
-  const g=grouped(d);
-  const regions=selR==='ALL'?REGION_ORDER.filter(r=>g[r]):[selR];
-  document.getElementById('body').innerHTML=regions.map(r=>{
-    const us=g[r]||[];
-    return`<div class="rsec">
-<div class="rsec-hd"><span class="rsec-name">${r}</span><span class="rsec-cnt">${us.length}개</span></div>
-<div class="cards">${us.map(u=>`<a class="card" href="${u.url}" target="_blank" rel="noopener"><span>${u.name}</span><span class="arr">›</span></a>`).join('')}</div>
-</div>`;
+
+  // 지역별 그룹핑
+  const grouped = {};
+  filtered.forEach(u => {
+    if (!grouped[u.region]) grouped[u.region] = [];
+    grouped[u.region].push(u);
+  });
+
+  const regions = selRegion === 'ALL'
+    ? REGION_ORDER.filter(r => grouped[r])
+    : [selRegion].filter(r => grouped[r]);
+
+  document.getElementById('body').innerHTML = regions.map(region => {
+    const univs = grouped[region] || [];
+    const cards = univs.map(u => {
+      const homeBtn = u.homeUrl
+        ? `<a class="link-btn btn-home" href="${u.homeUrl}" target="_blank" rel="noopener">🏫 입학처 홈</a>`
+        : `<span class="link-btn btn-disabled">🏫 입학처 없음</span>`;
+
+      const pdfBtn = u.pdfUrl
+        ? `<a class="link-btn btn-pdf" href="${u.pdfUrl}" target="_blank" rel="noopener">📄 2028 시행계획</a>`
+        : `<span class="link-btn btn-disabled">📄 2028 시행계획 없음</span>`;
+
+      return `<div class="card">
+        <div class="card-top">
+          <div class="card-name">${u.name}</div>
+        </div>
+        <div class="card-btns">
+          ${homeBtn}
+          ${pdfBtn}
+        </div>
+      </div>`;
+    }).join('');
+
+    return `<div class="rsec">
+      <div class="rsec-hd">
+        <span class="rsec-name">${region}</span>
+        <span class="rsec-cnt">${univs.length}개</span>
+      </div>
+      <div class="cards">${cards}</div>
+    </div>`;
   }).join('');
 }
 
-function setR(r){selR=r;renderBtns();render();}
-function clearS(){document.getElementById('srch').value='';srch='';document.getElementById('clr').classList.remove('on');render();}
-document.getElementById('srch').addEventListener('input',function(){
-  srch=this.value.trim();
-  document.getElementById('clr').classList.toggle('on',srch.length>0);
+// ── 이벤트 ──────────────────────────────────────────────────────────────────
+function setRegion(r) { selRegion = r; renderRegionBtns(); render(); }
+
+
+function clearSearch() {
+  document.getElementById('srch').value = '';
+  srch = '';
+  document.getElementById('clr').classList.remove('on');
+  render();
+}
+
+document.getElementById('srch').addEventListener('input', function() {
+  srch = this.value.trim();
+  document.getElementById('clr').classList.toggle('on', srch.length > 0);
   render();
 });
 
-renderBtns();render();
+window.addEventListener('scroll', () => {
+  document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+});
+
+// ── 초기화 ──────────────────────────────────────────────────────────────────
+renderRegionBtns();
+render();
 </script>
 </body>
 </html>
