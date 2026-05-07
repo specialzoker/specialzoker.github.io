@@ -31,6 +31,15 @@ const APPS = [
     link: "https://www.youtube.com/@%EA%B2%BD%EA%B8%B0%EC%A7%84%ED%98%91/playlists",
   },
   {
+    id: 7,
+    name: "G-MAP 2028 시행계획(개발중)",
+    description: "2028 시행계획을 정리하고 있습니다. 아직 로파일이 모두 정리되지 않아 지속적으로 업데이트 예정이고 완성되면 경기진협 단톡방을 통해 공지될 것입니다",
+    category: "진학데이터검색",
+    thumbnail: "images/GMAP.png",
+    thumbnailColor: "#10b981",
+    link: "https://specialzoker.github.io/gmap/",
+  },
+  {
     id: 6,
     name: "2028 대입전형 시행계획 나침반",
     description: "2028 대입전형 시행계획 링크 모음",
