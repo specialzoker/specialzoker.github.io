@@ -9,7 +9,7 @@ const APPS = [
     category: "교육",
     thumbnail: "images/wrong.png",
     thumbnailColor: "#6c63ff",
-    link: "https://script.google.com/macros/s/AKfycby_7hspmTAE-xG_y25U_Ft9jdGbF6IfNo9yqTgDMrr2BQ39Q4Wp4aUh88KPOeu0p6g4iQ/exec",
+    link: "https://specialzoker.github.io/wrong/",
   },
   {
     id: 2,
