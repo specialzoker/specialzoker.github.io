@@ -183,18 +183,22 @@ async function updateVisitorCount() {
     todayCount += 1;
     localStorage.setItem(todayKey, todayCount);
     sessionStorage.setItem("counted", "1");
-    apiUrl = "https://api.counterapi.dev/v1/ggjinhyub-platform/views/up";
+    try {
+      const res = await fetch("https://api.counterapi.dev/v1/ggjinhyub-platform/views/up");
+      const data = await res.json();
+      sessionStorage.setItem("totalCount", data.count);
+      el.textContent = `👁 오늘 ${todayCount} · 총 ${data.count.toLocaleString()}`;
+    } catch {
+      el.textContent = `👁 오늘 ${todayCount}`;
+    }
   } else {
-    // 새로고침 — 읽기만
-    apiUrl = "https://api.counterapi.dev/v1/ggjinhyub-platform/views";
-  }
-
-  try {
-    const res = await fetch(apiUrl);
-    const data = await res.json();
-    el.textContent = `👁 오늘 ${todayCount} · 총 ${data.count.toLocaleString()}`;
-  } catch {
-    el.textContent = `👁 오늘 ${todayCount}`;
+    // 새로고침 — 캐싱된 총 카운트 사용
+    const cached = sessionStorage.getItem("totalCount");
+    if (cached) {
+      el.textContent = `👁 오늘 ${todayCount} · 총 ${parseInt(cached).toLocaleString()}`;
+    } else {
+      el.textContent = `👁 오늘 ${todayCount}`;
+    }
   }
 }
 
