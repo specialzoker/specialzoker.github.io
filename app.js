@@ -171,15 +171,26 @@ async function updateVisitorCount() {
   const el = document.getElementById("visitor-count");
   if (!el) return;
 
-  // 오늘 조회수 — localStorage로 브라우저별 추적
   const today = new Date().toISOString().slice(0, 10);
-  const key = "visit_" + today;
-  const todayCount = (parseInt(localStorage.getItem(key) || "0")) + 1;
-  localStorage.setItem(key, todayCount);
+  const todayKey = "visit_" + today;
+  const alreadyCounted = sessionStorage.getItem("counted");
 
-  // 총 조회수 — 무료 카운터 API
+  let todayCount = parseInt(localStorage.getItem(todayKey) || "0");
+  let apiUrl;
+
+  if (!alreadyCounted) {
+    // 새 방문 — 카운트 증가
+    todayCount += 1;
+    localStorage.setItem(todayKey, todayCount);
+    sessionStorage.setItem("counted", "1");
+    apiUrl = "https://api.counterapi.dev/v1/ggjinhyub-platform/views/up";
+  } else {
+    // 새로고침 — 읽기만
+    apiUrl = "https://api.counterapi.dev/v1/ggjinhyub-platform/views";
+  }
+
   try {
-    const res = await fetch("https://api.counterapi.dev/v1/ggjinhyub-platform/views/up");
+    const res = await fetch(apiUrl);
     const data = await res.json();
     el.textContent = `👁 오늘 ${todayCount} · 총 ${data.count.toLocaleString()}`;
   } catch {
