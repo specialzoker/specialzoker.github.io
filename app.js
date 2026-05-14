@@ -167,8 +167,29 @@ function updateCount() {
   total.textContent = `앱 ${APPS.length}개`;
 }
 
+async function updateVisitorCount() {
+  const el = document.getElementById("visitor-count");
+  if (!el) return;
+
+  // 오늘 조회수 — localStorage로 브라우저별 추적
+  const today = new Date().toISOString().slice(0, 10);
+  const key = "visit_" + today;
+  const todayCount = (parseInt(localStorage.getItem(key) || "0")) + 1;
+  localStorage.setItem(key, todayCount);
+
+  // 총 조회수 — 무료 카운터 API
+  try {
+    const res = await fetch("https://api.counterapi.dev/v1/ggjinhyub-platform/views/up");
+    const data = await res.json();
+    el.textContent = `👁 오늘 ${todayCount} · 총 ${data.count.toLocaleString()}`;
+  } catch {
+    el.textContent = `👁 오늘 ${todayCount}`;
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   updateCount();
   buildFilterButtons();
   renderCards();
+  updateVisitorCount();
 });

@@ -54,6 +54,12 @@ body {
   object-fit: contain;
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .app-count {
   font-size: .82rem;
   color: var(--muted);
@@ -61,6 +67,16 @@ body {
   border: 1px solid var(--border);
   padding: 4px 10px;
   border-radius: 99px;
+}
+
+.visitor-count {
+  font-size: .78rem;
+  color: var(--muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 99px;
+  opacity: 0.75;
 }
 
 /* ============ 히어로 ============ */
