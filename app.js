@@ -60,7 +60,7 @@ const APPS = [
   },
   {
     id: 3,
-    name: "대입통합검색기 (추후공개)",
+    name: "G-MAP 대입통합검색기",
     description: "일상 상담시 라인잡기용 상담프로그램. 수시와 정시를 함께 볼 수 있음.",
     category: "진학데이터검색",
     thumbnail: "images/search.png",
