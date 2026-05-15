@@ -177,23 +177,17 @@ async function updateVisitorCount() {
   if (!alreadyCounted) {
     sessionStorage.setItem("counted", "1");
     try {
-      const [totalRes, todayRes] = await Promise.all([
-        fetch("https://api.counterapi.dev/v1/ggjinhyub-platform/views/up"),
-        fetch(`https://api.counterapi.dev/v1/ggjinhyub-platform/today-${today}/up`)
-      ]);
+      const totalRes = await fetch("https://api.counterapi.dev/v1/ggjinhyub-platform/views/up");
       const totalData = await totalRes.json();
-      const todayData = await todayRes.json();
       sessionStorage.setItem("totalCount", totalData.count);
-      sessionStorage.setItem("todayCount", todayData.count);
-      el.textContent = `👁 오늘 ${todayData.count} · 총 ${totalData.count.toLocaleString()}`;
+      el.textContent = `👁 총 ${totalData.count.toLocaleString()}`;
     } catch {
       el.textContent = `👁 조회 중…`;
     }
   } else {
     const total = sessionStorage.getItem("totalCount");
-    const todayCount = sessionStorage.getItem("todayCount");
-    if (total && todayCount) {
-      el.textContent = `👁 오늘 ${todayCount} · 총 ${parseInt(total).toLocaleString()}`;
+    if (total) {
+      el.textContent = `👁 총 ${parseInt(total).toLocaleString()}`;
     }
   }
 }
