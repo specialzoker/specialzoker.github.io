@@ -32,8 +32,8 @@ const APPS = [
   },
   {
     id: 7,
-    name: "G-MAP 2028 시행계획(개발중)",
-    description: "2028 시행계획을 정리하고 있습니다. 아직 로파일이 모두 정리되지 않아 지속적으로 업데이트 예정이고 완성되면 경기진협 단톡방을 통해 공지될 것입니다",
+    name: "G-MAP 2028 시행계획",
+    description: "2028 시행계획을 정리하여 검색할 수 있는 프로그램. feat 조만기, 허정욱, 강순영, 김수정, 이지수, 채무철, 김한국, 강기정, 정현석",
     category: "진학데이터검색",
     thumbnail: "images/GMAP.png",
     thumbnailColor: "#10b981",
