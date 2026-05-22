@@ -33,7 +33,7 @@ const APPS = [
   {
     id: 7,
     name: "G-MAP 2028 시행계획",
-    description: "2028 시행계획을 정리하여 검색할 수 있는 프로그램. feat 조만기, 허정욱, 강순영, 김수정, 이지수, 채무철, 김한국, 강기정, 정현석",
+    description: "2028 시행계획을 정리하여 검색할 수 있는 프로그램. feat 조만기, 허정욱, 강순영, 김수정, 이지수, 채무철, 김한국, 김기정, 정현석",
     category: "진학데이터검색",
     thumbnail: "images/GMAP.png",
     thumbnailColor: "#10b981",
