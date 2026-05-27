@@ -3,6 +3,15 @@
 // =============================================
 const APPS = [
   {
+    id: 8,
+    name: "경기진협 공식 연구자료 모음",
+    description: "경기진협의 다양한 연구팀들이 만든 강의자료, 연구파일 등을 모아 놓은 드라이브",
+    category: "교육",
+    thumbnail: "images/drive.png",
+    thumbnailColor: "#8b5cf6",
+    link: "https://drive.google.com/drive/folders/1CUKnL3UHuV_D234netutiPuFWY1NhXjK?usp=drive_link",
+  },
+  {
     id: 1,
     name: "모의고사 오답정리기",
     description: "틀린 모의고사 문제와 유사한 문제를 추천 받아 풀어보는 프로그램",
