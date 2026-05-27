@@ -4,7 +4,7 @@
 const APPS = [
   {
     id: 8,
-    name: "경기진협 공식 연구자료 모음",
+    name: "경기진협 연구자료 모음",
     description: "경기진협의 다양한 연구팀들이 만든 강의자료, 연구파일 등을 모아 놓은 드라이브",
     category: "교육",
     thumbnail: "images/drive.png",
