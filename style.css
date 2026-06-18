@@ -227,6 +227,16 @@ body {
   fill: #8b5e00;
 }
 
+.btn-vip {
+  background: linear-gradient(135deg, #d4a017 0%, #b8860b 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(212, 160, 23, 0.4);
+}
+
+.btn-vip:hover {
+  background: linear-gradient(135deg, #b8860b 0%, #8b6508 100%) !important;
+}
+
 /* 썸네일 */
 .card-thumb {
   width: 100%;
