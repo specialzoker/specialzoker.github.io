@@ -68,6 +68,15 @@ const APPS = [
     link: "https://specialzoker.github.io/ggjinhyubboxplot/",
   },
   {
+    id: 9,
+    name: "지원성향분석",
+    description: "작년 경기진협 데이터를 바탕으로 학생들의 지원 경향성을 분석",
+    category: "진학데이터검색",
+    thumbnail: "images/another.png",
+    thumbnailColor: "#10b981",
+    link: "https://specialzoker.github.io/another/",
+  },
+  {
     id: 3,
     name: "G-MAP 대입통합검색기",
     description: "일상 상담시 라인잡기용 상담프로그램. 수시와 정시를 함께 볼 수 있음.",
