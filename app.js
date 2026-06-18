@@ -66,6 +66,7 @@ const APPS = [
     thumbnail: "images/box.png",
     thumbnailColor: "#10b981",
     link: "https://specialzoker.github.io/ggjinhyubboxplot/",
+    vip: true,
   },
   {
     id: 9,
@@ -76,6 +77,7 @@ const APPS = [
     thumbnail: "images/another.png",
     thumbnailColor: "#10b981",
     link: "https://specialzoker.github.io/another/",
+    vip: true,
   },
   {
     id: 3,
@@ -161,8 +163,13 @@ function renderCards() {
            ${getIcon(app.category)}
          </div>`;
 
+    const vipBadge = app.vip
+      ? `<div class="vip-badge"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M5 16L3 5l5.5 4L12 4l3.5 5L21 5l-2 11H5zm14 3H5v2h14v-2z"/></svg>VIP</div>`
+      : "";
+
     return `
-      <article class="card" style="--accent:${accent}">
+      <article class="card${app.vip ? " card-vip" : ""}" style="--accent:${accent}">
+        ${vipBadge}
         <div class="card-thumb">${thumb}</div>
         <div class="card-body">
           <span class="badge">${app.category}</span>
