@@ -71,6 +71,7 @@ const APPS = [
     id: 9,
     name: "지원성향분석",
     description: "작년 경기진협 데이터를 바탕으로 학생들의 지원 경향성을 분석",
+    note: "이 앱은 경기진협에 수시입결을 제공하신 학교에만 코드가 제공됩니다.",
     category: "진학데이터검색",
     thumbnail: "images/another.png",
     thumbnailColor: "#10b981",
