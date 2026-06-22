@@ -3,6 +3,15 @@
 // =============================================
 const APPS = [
   {
+    id: 10,
+    name: "26-27 수시모집요강 비교 영상",
+    description: "2026·2027 수시 모집요강을 비교 분석한 재생목록",
+    category: "유튜브 영상",
+    thumbnail: "images/2627.png",
+    thumbnailColor: "#ef4444",
+    link: "https://www.youtube.com/playlist?list=PL-yjqRHega9nbNUDZsVxB0ag5mzCUKTmy",
+  },
+  {
     id: 7,
     name: "G-MAP 2028 시행계획",
     description: "2028 시행계획을 정리하여 검색할 수 있는 프로그램. feat 조만기, 허정욱, 강순영, 김수정, 이지수, 채무철, 김한국, 김기정, 정현석",
