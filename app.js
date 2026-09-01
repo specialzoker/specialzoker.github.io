@@ -3,6 +3,22 @@
 // =============================================
 const APPS = [
   {
+    id: 11,
+    name: "2026 의치한약수 면접 분석 자료집",
+    description: "경기진협 의치한약수 연구팀이 제작한 의·치·한·약·수 면접 분석 자료집",
+    category: "교육",
+    thumbnailColor: "#0B3D7A",
+    link: "michihanyaksu-interview.html",
+  },
+  {
+    id: 12,
+    name: "2027 의치한약수 수시전형 처방전",
+    description: "경기진협 의치한약수 연구팀이 제작한 2027 수시전형 분석 자료집(처방전)",
+    category: "교육",
+    thumbnailColor: "#155e4b",
+    link: "michihanyaksu-susi.html",
+  },
+  {
     id: 10,
     name: "26-27 수시모집요강 비교 영상",
     description: "2026·2027 수시 모집요강을 비교 분석한 재생목록",
