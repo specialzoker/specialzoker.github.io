@@ -16,6 +16,7 @@ const APPS = [
     name: "2027 의치한약수 수시전형 처방전",
     description: "경기진협 의치한약수 연구팀이 제작한 2027 수시전형 분석 자료집(처방전)",
     category: "교육",
+    thumbnail: "images/michihanyaksu-susi.png",
     thumbnailColor: "#155e4b",
     link: "michihanyaksu-susi.html",
   },
