@@ -231,10 +231,10 @@ async function updateVisitorCount() {
   if (!alreadyCounted) {
     sessionStorage.setItem("counted", "1");
     try {
-      const totalRes = await fetch("https://api.counterapi.dev/v1/ggjinhyub-platform/views/up");
-      const totalData = await totalRes.json();
-      sessionStorage.setItem("totalCount", totalData.count);
-      el.textContent = `👁 총 ${totalData.count.toLocaleString()}`;
+      const res = await fetch("https://abacus.jasoncameron.dev/hit/ggjinhyub-platform/views");
+      const data = await res.json();
+      sessionStorage.setItem("totalCount", data.value);
+      el.textContent = `👁 총 ${data.value.toLocaleString()}`;
     } catch {
       el.textContent = `👁 조회 중…`;
     }
