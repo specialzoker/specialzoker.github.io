@@ -7,6 +7,7 @@ const APPS = [
     name: "2026 의치한약수 면접 분석 자료집",
     description: "경기진협 의치한약수 연구팀이 제작한 의·치·한·약·수 면접 분석 자료집",
     category: "교육",
+    thumbnail: "images/michihanyaksu-interview.png",
     thumbnailColor: "#0B3D7A",
     link: "michihanyaksu-interview.html",
   },
