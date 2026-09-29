@@ -3,6 +3,15 @@
 // =============================================
 const APPS = [
   {
+    id: 13,
+    name: "5등급제 입결 검색",
+    description: "5등급제 내신을 환산 9등급으로 변환해 2026학년도 70% cut이 근처인 모집단위를 찾아주는 상담용 검색기",
+    category: "진학데이터검색",
+    thumbnail: "images/grade5.png",
+    thumbnailColor: "#24503a",
+    link: "https://specialzoker.github.io/grade5/",
+  },
+  {
     id: 11,
     name: "2026 의치한약수 면접 분석 자료집",
     description: "경기진협 의치한약수 연구팀이 제작한 의·치·한·약·수 면접 분석 자료집",
