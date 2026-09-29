@@ -7,7 +7,7 @@ const APPS = [
     name: "5등급제 입결 검색",
     description: "5등급제 내신을 환산 9등급으로 변환해 2026학년도 70% cut이 근처인 모집단위를 찾아주는 상담용 검색기",
     category: "진학데이터검색",
-    note: "이 앱은 경기진협에 수시입결을 제공하신 학교에만 코드가 제공됩니다.",
+    note: "이 앱은 경기진협에 2학년 성적을 제공하신 학교에만 코드가 제공됩니다.",
     thumbnail: "images/grade5.png",
     thumbnailColor: "#24503a",
     link: "https://specialzoker.github.io/grade5/",
