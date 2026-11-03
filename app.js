@@ -6,6 +6,7 @@ const APPS = [
     id: 14,
     name: "2027 체육대학 정시 상담",
     description: "수능 성적·실기 기록·내신 환산점수를 입력하면 체육대학별 정시 점수를 계산하고 판정해 주는 상담 프로그램",
+    note: "제작자 이매고 황규훈",
     category: "진학데이터검색",
     thumbnail: "images/pe-counsel-2027.png",
     thumbnailColor: "#10b981",
