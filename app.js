@@ -3,6 +3,15 @@
 // =============================================
 const APPS = [
   {
+    id: 14,
+    name: "2027 체육대학 정시 상담",
+    description: "수능 성적·실기 기록·내신 환산점수를 입력하면 체육대학별 정시 점수를 계산하고 판정해 주는 상담 프로그램",
+    category: "진학데이터검색",
+    thumbnail: "images/pe-counsel-2027.png",
+    thumbnailColor: "#10b981",
+    link: "https://specialzoker.github.io/pe-counsel-2027/",
+  },
+  {
     id: 13,
     name: "5등급제 입결 검색",
     description: "5등급제 내신을 환산 9등급으로 변환해 2026학년도 70% cut이 근처인 모집단위를 찾아주는 상담용 검색기",
